@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>More Properties!</title>
+
+</head>
+
+<body>
+
+  <!-- An utterly ugly form! -->
+  <label for="name-input">Name:</label>
+  <input class="form-control" id="name-input" type="text">
+  <label for="age-input">Age:</label>
+  <input class="form-control" id="age-input" type="text">
+  <label for="phone-input">Phone:</label>
+  <input class="form-control" id="phone-input" type="text">
+
+  <!-- Submit Button -->
+  <button id="click-button" type="submit">Submit</button>
+
+  <hr>
+
+  <!-- Displayed Data -->
+  <div id="displayed-data"></div>
+
+  <!-- ====================================================================== -->
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+
+  <!-- SDKs for Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+
+  <!-- Script -->
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBl6kCAXMGXcSqI5k8qz-Nfgh3LYJqjDCI",
+      authDomain: "dt-bootcamp-multi-prop.firebaseapp.com",
+      databaseURL: "https://dt-bootcamp-multi-prop.firebaseio.com",
+      projectId: "dt-bootcamp-multi-prop",
+      storageBucket: "dt-bootcamp-multi-prop.appspot.com",
+      messagingSenderId: "1076480102625",
+      appId: "1:1076480102625:web:d8b05c4ed3ba13938a27a0"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    
+    // Create a variable to reference the database
+    var database = firebase.database();
+
+    // Initial Variables (SET the first set IN FIREBASE FIRST)
+    // Note remember to create these same variables in Firebase!
+    var name = "";
+    var age = "";
+    var phone = "";
+
+    // Click Button changes what is stored in firebase
+    $("#click-button").on("click", function (event) {
+      // Prevent the page from refreshing
+      event.preventDefault();
+
+      // Get inputs
+      name = $("#name-input").val().trim();
+      age = $("#age-input").val().trim();
+      phone = $("#phone-input").val().trim();
+
+      // Change what is saved in firebase
+      database.ref().set({
+        name: name,
+        age: age,
+        phone: phone
+      });
+    });
+
+    // Firebase is always watching for changes to the data.
+    // When changes occurs it will print them to console and html
+    database.ref().on("value", function (snapshot) {
+
+      // Print the initial data to the console.
+      console.log(snapshot.val());
+
+      // Log the value of the various properties
+      console.log(snapshot.val().name);
+      console.log(snapshot.val().age);
+      console.log(snapshot.val().phone);
+
+      // Change the HTML
+      $("#displayed-data").text(snapshot.val().name + " | " + snapshot.val().age + " | " + snapshot.val().phone);
+
+      // If any errors are experienced, log them to console.
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+  </script>
+
+</body>
+
+</html>

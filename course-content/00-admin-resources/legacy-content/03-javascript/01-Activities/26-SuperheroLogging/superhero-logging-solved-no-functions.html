@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Superhero Logging - No Functions</title>
+</head>
+
+<body>
+
+  <h1>Open the console to see the magic!</h1>
+
+  <script type="text/javascript">
+
+    // Various Arrays
+    var brands = ["Acer", "Apple", "Sony", "Samsung"];
+    var heroes = ["Black Panther", "Cyborg", "Black Canary", "Donna Troy", "Huntress", "Blue Beetle", "Captain Atom"];
+    var booksOnMyShelf = ["Calculus Early Transcendentals", "Ravens", "The Self Illusion", "Harry Potter"];
+    var thingsInFrontOfMe = ["Laptop", "Beanbag", "Cats", "Slippers"];
+    var howIFeel = ["Sleep Deprived", "Wired on Coffee", "Excited"];
+
+    // For Loop for Brands
+    logArray(brands);
+
+    // For Loop for Heroes
+    logArray(heroes);
+
+    // For Loop for booksOnMyShelf
+    logArray(booksOnMyShelf);
+
+    // For Loop for thingsInFrontOfMe
+    logArray(thingsInFrontOfMe);
+
+    // For Loop for howIFeel
+    logArray(howIFeel);
+
+    function logArray(inputArray) {
+
+      for (var i = 0; i < inputArray.length; i++) {
+        console.log(inputArray[i] + " index is " + i);
+      }
+
+      console.log("***************************");
+    }
+
+    add(2, 3);
+    
+    function add(a, b) {
+      console.log(a + b);
+    }
+
+  </script>
+
+</body>
+
+</html>

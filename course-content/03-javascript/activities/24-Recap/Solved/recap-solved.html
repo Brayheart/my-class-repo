@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Recap Conditionals and Loops</title>
+  </head>
+  <body>
+
+    <h1>Open the console to see the magic!</h1>
+
+    <script>
+
+      // Rows of Students
+       var studentsRow1 = ['Andrew L.', 'Brandon S.', 'Chris N.', 'Christopher H.', 'Dave C.', 'Dimple S.', 'Eastern L.', 'John P.'];
+      var studentsRow2 = ['Katia I.', 'Krishna A.', 'Leticia R.', 'Matt D.', 'Mirian L.', 'Monica A.', 'Ricky C.', 'Shelby R.'];
+      var studentsRow3 = ['Shipra D.', 'Sree P.', 'Yimeng Y.', 'Cesar G.','Roger P.', 'Azzi H.', 'Asher C.', 'Farley W.'];
+
+      // Entire Class
+      var entireClass = [studentsRow1, studentsRow2, studentsRow3];
+
+      // How do we print out every single student in Row 1?
+      console.log("Print out every single student in Row 1?")
+      
+      for (var i = 0; i < studentsRow1.length; i++) {
+        console.log(studentsRow1[i]);
+      }
+
+      console.log(studentsRow1);
+
+
+      // or
+       console.log("*****")
+
+       for (var i = 0; i < entireClass[0].length; i++) {
+        console.log(entireClass[0][i]);
+      }
+
+
+      
+
+      console.log("*****")
+      console.log("Every student in Row 2 whose first name begins with D?");
+      // How do we print out every student in Row 2 whose first name begins with M?
+      for (var j = 0; j < studentsRow2.length; j++) {
+        if (studentsRow2[j].charAt(0) === "M") {
+          console.log("Starts with a M " + studentsRow2[j]);
+        }
+      }
+
+      // or
+       console.log("*****")
+
+      for (var j = 0; j < entireClass[1].length; j++) {
+        if (entireClass[1][j].charAt(0) === "M") {
+          console.log("Starts with a M " + entireClass[1][j]);
+        }
+      }
+
+      // Using the entireClass array, how do we access the second student in row 3?
+      console.log("*****")
+      console.log("Second Student in Row 3.");
+      console.log(entireClass[2][1]);
+
+      // Using the entireClass array, how do we access the third student in row 2?
+      console.log("*****")
+      console.log("Third student in Row 2.");
+      console.log(entireClass[1][2]);
+
+    </script>
+
+  </body>
+</html>

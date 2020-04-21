@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Moment JS Exercises</title>
+
+</head>
+
+<body>
+
+  <!-- jQuery-->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <!-- Link to Moment.js should go here -->
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+
+  <!-- Script -->
+  <script>
+    // Prints the current day and time in this particular format.
+    console.log(moment().format("DD/MM/YY hh:mm A"));
+
+    var randomDate = "02/23/2020";
+    var randomFormat = "MM/DD/YYYY";
+    var convertedDate = moment(randomDate, randomFormat);
+
+    console.log(convertedDate.format("MMM Do, YYYY hh:mm:ss"));
+    console.log(convertedDate.format("MM/DD/YYYY"));
+  </script>
+
+</body>
+
+</html>
